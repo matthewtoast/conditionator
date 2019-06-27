@@ -2,7 +2,8 @@ module.exports = conditionator
 
 const DEFAULTS = {
   log: false,
-  equality: '===',
+  operator: '&&',
+  comparator: '===',
 };
 
 function conditionator (obj, options = {}) {
@@ -18,13 +19,13 @@ function conditionator (obj, options = {}) {
   prod.forEach((arr) => {
     const line = arr.map((val, idx) => {
       const key = map[idx];
-      return `${key} ${opts.equality} ${JSON.stringify(jsonValue(val))}`;
+      return `${key} ${opts.comparator} ${JSON.stringify(jsonValue(val))}`;
     });
     lines.push(line);
   });
   let out = '';
   lines.forEach((line, idx) => {
-    const cond = `${(idx === 0) ? '' : ' else '}if (${line.join(' && ')}) {\n\n}`;
+    const cond = `${(idx === 0) ? '' : ' else '}if (${line.join(` ${opts.operator} `)}) {\n\n}`;
     out += cond;
   })
   if (opts.log) {
