@@ -1,0 +1,8 @@
+{
+  "name": "conditionator",
+  "author": "Matthew Trost <matthewtoast@github>",
+  "description": "Produce a conditional string from a declaration of its variables and their possible values",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
