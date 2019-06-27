@@ -59,11 +59,3 @@ function cartesianProduct (arr, out = [[]]) {
   }
   return out;
 }
-
-console.log(conditionator({
-  foo: 'abc|def|ghi'.split('|'),
-  bar: '123|456'.split('|'),
-  baz: 'null|false'.split('|'),
-}, {
-  log: true,
-}));
